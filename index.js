@@ -132,7 +132,7 @@ console.log(decrease, GreatDecrease);
 
 //ADDITION: Calculate the change with an increase and put in an array
 var increaseArray = [];
-for (var i = 1; i < 20; i++){
+for (var i = 1; i < finances.length; i++){
   averChange = finances[i][1] - finances[i-1][1];
   if (averChange >= 0){
     increase = averChange;
@@ -141,9 +141,11 @@ for (var i = 1; i < 20; i++){
 }
 console.log(increaseArray);
 
-var arr = [];
-for (var i = 0; i < 10; i++) {
-    arr.push([i, i]);        
-}
-console.log(arr);
+// Sorting??
+
+//var arr = [];
+//for (var i = 0; i < 10; i++) {
+//    arr.push([i, i]);        
+//}
+//console.log(arr);
 //console.log(finances);
