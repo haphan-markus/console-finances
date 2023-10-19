@@ -107,11 +107,32 @@ for (var i = 1; i < finances.length; i++){
   averChangeTotal = averChangeTotal + averChange;
   console.log(averChange);
   console.log(averChangeTotal);
-  }
+}
 console.log("The average change is: " + (averChangeTotal/(finances.length-1))+".");
 
 // The greatest increase in Profit/Losses (date and amount) over the entire period.
+var increase = 0;
+var GreatIncrease = [0,0];
+for (var i = 1; i < finances.length; i++){
+  averChange = finances[i][1] - finances[i-1][1];
+  if (averChange > increase){
+    increase = averChange;
+    GreatIncrease = [finances[i][0],finances[i][1]];
+  }
+}
+console.log(increase, GreatIncrease);
 
+//The greatest decrease in Profit/Losses (date and amount) over the entire period.
+var decrease = 0;
+var GreatDecrease = [0,0];
+for (var i = 1; i < finances.length; i++){
+  averChange = finances[i][1] - finances[i-1][1];
+  if (averChange < decrease){
+    decrease = averChange;
+    GreatDecrease = [finances[i][0],finances[i][1]];
+  }
+}
+console.log(decrease, GreatDecrease);
 // let items = [
 //  [1, 2],
 //  [3, 4],
