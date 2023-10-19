@@ -97,19 +97,20 @@ if (sum >=0) {
 } else {
   console.log("The net total amount of Loss over the entire period is "+sum);
 }
+
 //The average of the **changes** in Profit/Losses over the entire period
 var averChange = 0;
 var averChangeTotal = 0;
-// var x = 0;
-for (var i = 0; i < finances.length; i++){
-  console.log(i+1);
-  averChange = finances[i+1][1] - finances[i][1];
+for (var i = 1; i < finances.length; i++){
+  console.log(i);
+  averChange = finances[i][1] - finances[i-1][1];
   averChangeTotal = averChangeTotal + averChange;
   console.log(averChange);
   console.log(averChangeTotal);
-  //averageChangeTotal = averageChangeTotal + averageChange;
-}
-console.log(averChangeTotal);
+  }
+console.log("The average change is: " + (averChangeTotal/(finances.length-1))+".");
+
+// The greatest increase in Profit/Losses (date and amount) over the entire period.
 
 // let items = [
 //  [1, 2],
