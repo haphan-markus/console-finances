@@ -113,33 +113,37 @@ console.log("The average change is: " + (averChangeTotal/(finances.length-1))+".
 // The greatest increase in Profit/Losses (date and amount) over the entire period.
 var increase = 0;
 var GreatIncrease = [0,0];
+var decrease = 0;
+var GreatDecrease = [0,0];
 for (var i = 1; i < finances.length; i++){
   averChange = finances[i][1] - finances[i-1][1];
   if (averChange > increase){
     increase = averChange;
     GreatIncrease = [finances[i][0],finances[i][1]];
   }
-}
-console.log(increase, GreatIncrease);
-
-//The greatest decrease in Profit/Losses (date and amount) over the entire period.
-var decrease = 0;
-var GreatDecrease = [0,0];
-for (var i = 1; i < finances.length; i++){
-  averChange = finances[i][1] - finances[i-1][1];
   if (averChange < decrease){
     decrease = averChange;
     GreatDecrease = [finances[i][0],finances[i][1]];
   }
 }
+console.log(increase, GreatIncrease);
+//The greatest decrease in Profit/Losses (date and amount) over the entire period.
 console.log(decrease, GreatDecrease);
-// let items = [
-//  [1, 2],
-//  [3, 4],
-//  [5, 6]
-//];
-//console.log(items[0][0]); // 1
-//console.log(items[0][1]); // 2
-//console.log(items[1][0]); // 3
-//console.log(items[1][1]); // 4
-//console.log(items);
+
+//ADDITION: Calculate the change with an increase and put in an array
+var increaseArray = [];
+for (var i = 1; i < 20; i++){
+  averChange = finances[i][1] - finances[i-1][1];
+  if (averChange >= 0){
+    increase = averChange;
+    increaseArray.push([finances[i][0],finances[i][1],averChange]);
+  }
+}
+console.log(increaseArray);
+
+var arr = [];
+for (var i = 0; i < 10; i++) {
+    arr.push([i, i]);        
+}
+console.log(arr);
+//console.log(finances);
