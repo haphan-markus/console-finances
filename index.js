@@ -89,7 +89,24 @@ var finances = [
 console.log("There are " + finances.length + " months in the dataset");
 console.log(finances[0][0]);
 let sum = 0;
-for (let i = 0; i < finances.length; i++){
+for (let i = 0; i < 3; i++){
   sum = sum + finances[i][1];
 }
+
+if (sum >=0) {
+  console.log("The net total amount of Profit over the entire period is "+sum);
+} else {
+  console.log("The net total amount of Loss over the entire period is "+sum);
+}
 console.log(sum);
+
+let items = [
+  [1, 2],
+  [3, 4],
+  [5, 6]
+];
+console.log(items[0][0]); // 1
+console.log(items[0][1]); // 2
+console.log(items[1][0]); // 3
+console.log(items[1][1]); // 4
+console.log(items);
