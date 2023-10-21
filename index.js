@@ -86,9 +86,17 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+var sum = 0; //Total profit/loss for the period in the dataset
+var averChange = 0; //Change in profit/loss in 1 month
+var averChangeTotal = 0; //Change in profit/loss for the whole period in the dataset
+var maxProfit = 0; //Variable to store the maximum value of the profit
+var DateProfit = [0,0]; //Store the value of time of the maximum profit
+var maxLoss = 0; //Variable to store the maximum value of the loss
+var DateLoss = [0,0]; //Store the value of time of the maximum loss
+
+//Total months in the dataset
 console.log("There are " + finances.length + " months in the dataset");
 //Calculate the total profit/loss
-var sum = 0;
 for (var i = 0; i < finances.length; i++){
   sum = sum + finances[i][1];
 }
@@ -99,36 +107,23 @@ if (sum >=0) {
 }
 
 //The average of the **changes** in Profit/Losses over the entire period
-var averChange = 0;
-var averChangeTotal = 0;
+// The greatest increase in Profit/Losses (date and amount) over the entire period.
 for (var i = 1; i < finances.length; i++){
-  console.log(i);
   averChange = finances[i][1] - finances[i-1][1];
   averChangeTotal = averChangeTotal + averChange;
-  console.log(averChange);
-  console.log(averChangeTotal);
+  if (averChange > maxProfit){
+    maxProfit = averChange;
+    DateProfit = [finances[i][0],finances[i][1]];
+  }
+  if (averChange < maxLoss){
+    maxLoss = averChange;
+    DateLoss = [finances[i][0],finances[i][1]];
+  }
 }
 console.log("The average change is: " + (averChangeTotal/(finances.length-1))+".");
-
-// The greatest increase in Profit/Losses (date and amount) over the entire period.
-var increase = 0;
-var GreatIncrease = [0,0];
-var decrease = 0;
-var GreatDecrease = [0,0];
-for (var i = 1; i < finances.length; i++){
-  averChange = finances[i][1] - finances[i-1][1];
-  if (averChange > increase){
-    increase = averChange;
-    GreatIncrease = [finances[i][0],finances[i][1]];
-  }
-  if (averChange < decrease){
-    decrease = averChange;
-    GreatDecrease = [finances[i][0],finances[i][1]];
-  }
-}
-console.log(increase, GreatIncrease);
+console.log(maxProfit, DateProfit);
 //The greatest decrease in Profit/Losses (date and amount) over the entire period.
-console.log(decrease, GreatDecrease);
+console.log(maxLoss, DateLoss);
 
 //ADDITION: Calculate the change with an increase and put in an array
 var increaseArray = [];
@@ -139,7 +134,10 @@ for (var i = 1; i < finances.length; i++){
     increaseArray.push([finances[i][0],finances[i][1],averChange]);
   }
 }
-console.log(increaseArray);
+for (var i = 0; i < 5; i++){
+  console.log(increaseArray[i]);  
+}
+
 
 // Sorting??
 
