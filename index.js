@@ -95,19 +95,20 @@ var maxLoss = 0; //Variable to store the maximum value of the loss
 var DateLoss = [0,0]; //Store the value of time of the maximum loss
 
 //Total months in the dataset
-console.log("There are " + finances.length + " months in the dataset");
+console.log("Financial Analysis");
+console.log("----------------");
+console.log("Total months: " + finances.length);
 //Calculate the total profit/loss
 for (var i = 0; i < finances.length; i++){
   sum = sum + finances[i][1];
 }
 if (sum >=0) {
-  console.log("The net total amount of Profit over the entire period is "+sum);
+  console.log("Total Profit: $"+sum);
 } else {
-  console.log("The net total amount of Loss over the entire period is "+sum);
+  console.log("Total Loss: $"+sum);
 }
-
 //The average of the **changes** in Profit/Losses over the entire period
-// The greatest increase in Profit/Losses (date and amount) over the entire period.
+// The greatest increase/decrease in Profit/Losses (date and amount) over the entire period.
 for (var i = 1; i < finances.length; i++){
   averChange = finances[i][1] - finances[i-1][1];
   averChangeTotal = averChangeTotal + averChange;
@@ -120,10 +121,9 @@ for (var i = 1; i < finances.length; i++){
     DateLoss = [finances[i][0],finances[i][1]];
   }
 }
-console.log("The average change is: " + (averChangeTotal/(finances.length-1))+".");
-console.log(maxProfit, DateProfit);
-//The greatest decrease in Profit/Losses (date and amount) over the entire period.
-console.log(maxLoss, DateLoss);
+console.log("Average Change: $" + Math.round((averChangeTotal/(finances.length-1) + Number.EPSILON) * 100) / 100);
+console.log("Greatest Increase in Profits/Losses: "+ DateProfit[0] + " ($" + maxProfit + ")");
+console.log("Greatest Decrease in Profits/Losses: "+ DateLoss[0] + " ($" + maxLoss + ")");
 
 //ADDITION: Calculate the change with an increase and put in an array
 var increaseArray = [];
@@ -140,10 +140,3 @@ for (var i = 0; i < 5; i++){
 
 
 // Sorting??
-
-//var arr = [];
-//for (var i = 0; i < 10; i++) {
-//    arr.push([i, i]);        
-//}
-//console.log(arr);
-//console.log(finances);
