@@ -14,11 +14,17 @@ Console-Finances analyses the financial records of a company from Jan-2010 to Fe
 
 * The greatest decrease in Profit/Losses (date and amount) over the entire period.
 
+Additional analysis is performed to determine the 5 months with greated increase/decrease in Profits/ Losses (date and amount) over the entire period.
+
 ## Usage
 
 The complete analysis is demonstrated in the console of the deployed website: 
 ![Alt text](./screenshots/image.png)
 
+The additional analysis defines the top 5 5 months with greated increase/decrease in Profits/ Losses:
+![Alt text](./screenshots/image1.png)
+
+![Alt text](./screenshots/image2.png)
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
