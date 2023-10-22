@@ -17,6 +17,8 @@ Console-Finances analyses the financial records of a company from Jan-2010 to Fe
 Additional analysis is performed to determine the 5 months with greated increase/decrease in Profits/ Losses (date and amount) over the entire period.
 
 ## Usage
+The deployed website: https://haphan-markus.github.io/console-finances/
+![Alt text](./screenshots/image3.png)
 
 The complete analysis is demonstrated in the console of the deployed website: 
 ![Alt text](./screenshots/image.png)
