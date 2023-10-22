@@ -18,12 +18,15 @@ Additional analysis is performed to determine the 5 months with greated increase
 
 ## Usage
 The deployed website: https://haphan-markus.github.io/console-finances/
+
 ![Alt text](./screenshots/image3.png)
 
 The complete analysis is demonstrated in the console of the deployed website: 
+
 ![Alt text](./screenshots/image.png)
 
-The additional analysis defines the top 5 5 months with greated increase/decrease in Profits/ Losses:
+The additional analysis defines the top 5 months with greated increase/decrease in Profits/ Losses:
+
 ![Alt text](./screenshots/image1.png)
 
 ![Alt text](./screenshots/image2.png)
