@@ -127,16 +127,29 @@ console.log("Greatest Decrease in Profits/Losses: "+ DateLoss[0] + " ($" + maxLo
 
 //ADDITION: Calculate the change with an increase and put in an array
 var increaseArray = [];
+var decreaseArray = [];
 for (var i = 1; i < finances.length; i++){
   averChange = finances[i][1] - finances[i-1][1];
   if (averChange >= 0){
-    increase = averChange;
     increaseArray.push([finances[i][0],finances[i][1],averChange]);
   }
+  if (averChange <0){
+    decreaseArray.push([finances[i][0],finances[i][1],averChange]);
+  }
 }
+console.log("----------------");
+console.log("Additional Analysis");
+increaseArray.sort((a,b)=>{
+  return b[2]-a[2]
+})
+console.log("Five months with Greatest Increase in Profits/Losses: ");
 for (var i = 0; i < 5; i++){
-  console.log(increaseArray[i]);  
+  console.log(increaseArray[i][0] + " ($" +increaseArray[i][2] + ")");
 }
-
-
-// Sorting??
+decreaseArray.sort((a,b)=>{
+  return a[2]-b[2]
+})
+console.log("Five months with Greatest Decrease in Profits/Losses: ");
+for (var i = 0; i < 5; i++){
+  console.log(decreaseArray[i][0] + " ($" + decreaseArray[i][2] + ")");
+}
